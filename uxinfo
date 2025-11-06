@@ -403,7 +403,7 @@ printf '\n\n'
 echo "OS: $os"
 echo "Kernel: $(uname 2>/dev/null) $(uname -r 2>/dev/null)"
 echo "Hostname: $(hostname 2>/dev/null)"
-echo "User: $(whoami 2>/dev/null)" || echo "N/A"
+echo "User: $(whoami 2>/dev/null)" || echo 'N/A' 2>/dev/null)
 echo "CPU cores: $(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 'N/A')"
 if [[ -f /proc/meminfo ]]; then
     mem_kb=$(grep MemTotal /proc/meminfo | awk '{print $2}')
@@ -432,6 +432,4 @@ echo "CPU model: ${cpu_model}"
 echo "Shell: $SHELL"
 echo "Uptime: $(uptime 2>/dev/null)"
 echo "Boot time:$(who -b 2>/dev/null)"
-echo "Terminal: $TERM"
-echo "DE/WM: $DESKTOP_SESSION"
 echo "WD: $(pwd 2>/dev/null)"
