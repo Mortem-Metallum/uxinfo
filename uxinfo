@@ -57,7 +57,7 @@ EOF
   shift
 done
 
-if [[ $os == "GNU/Linux" || $os == "Linux" ]]; then
+if [[ $os == "GNU/Linux" || $os == "Linux" || $os == "Toybox" || $os == "Busybox" ]]; then
     cat <<'EOF'
                   .88888888:.
                 88888888.88888.
@@ -403,7 +403,7 @@ printf '\n\n'
 echo "OS: $os"
 echo "Kernel: $(uname 2>/dev/null) $(uname -r 2>/dev/null)"
 echo "Hostname: $(hostname 2>/dev/null)"
-echo "User: $(whoami 2>/dev/null)" || echo 'N/A' 2>/dev/null)
+echo "User: $(whoami 2>/dev/null)" || echo 'N/A' 2>/dev/null
 echo "CPU cores: $(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 'N/A')"
 if [[ -f /proc/meminfo ]]; then
     mem_kb=$(grep MemTotal /proc/meminfo | awk '{print $2}')
