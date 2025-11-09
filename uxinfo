@@ -437,7 +437,7 @@ else
 fi
 echo "CPU model: ${cpu_model}"
 echo "Shell: $SHELL"
-echo "Uptime:$(uptime 2>/dev/null)"
-echo "Boot time:$(who -b 2>/dev/null)"
+echo "Uptime:$(uptime 2>/dev/null || echo 'N/A')"
+echo "Boot time:$(who -b 2>/dev/null || echo 'N/A')"
 echo "WD: $(pwd)"
 echo "DE: $DE"
