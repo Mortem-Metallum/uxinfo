@@ -8,6 +8,13 @@ else
   canUseEasterEgg="NO"
 fi
 hasLicense="YES"
+if [[ $os == "Android" ]]; then
+  DE="SurfaceFlinger"
+elif [[ $os == "Darwin" ]]; then
+  DE="WindowServer"
+else
+  DE="$XDG_DESKTOP_SESSION"
+fi
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -430,8 +437,7 @@ else
 fi
 echo "CPU model: ${cpu_model}"
 echo "Shell: $SHELL"
-echo "Uptime: $(uptime 2>/dev/null)"
+echo "Uptime:$(uptime 2>/dev/null)"
 echo "Boot time:$(who -b 2>/dev/null)"
-echo "WD: $(pwd 2>/dev/null)"
-echo "DE: $XDG_DESKTOP_SESSION"
-echo ""
+echo "WD: $(pwd)"
+echo "DE: $DE"
