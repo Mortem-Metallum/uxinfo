@@ -1,6 +1,6 @@
 all:
-  echo "Please run 'sudo make install' to install uxinfo"
-  echo "Nothing to do."
+  echo "Please run sudo make install to install uxinfo"
+  exit 1
 install:
   if [ "$$USER" != "root" ]; then 
     echo "Must be root"
